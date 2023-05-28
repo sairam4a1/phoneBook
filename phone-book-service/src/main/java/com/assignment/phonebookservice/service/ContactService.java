@@ -12,4 +12,6 @@ public interface ContactService {
 
 	List<Contact> getContactsByPhoneNumber(String phoneNumber);
 	List<Contact>getAllContacts();
+
+    String deleteContact(String id);
 }

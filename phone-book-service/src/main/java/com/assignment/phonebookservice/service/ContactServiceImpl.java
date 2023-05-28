@@ -52,4 +52,14 @@ public class ContactServiceImpl implements ContactService {
         return contactList;
     }
 
+    @Override
+    public String deleteContact(String id) {
+        try {
+            repository.deleteById(id);
+        } catch (Exception exception) {
+            throw new ContactNotFoundException("Unable to delete requested contact");
+        }
+        return "Successfully deleted contact";
+    }
+
 }

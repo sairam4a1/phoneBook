@@ -12,7 +12,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -41,6 +40,12 @@ public class ContactController {
         log.info("Calling the contactService to retrieve  contact with phone number {}", phoneNumber);
         return ResponseEntity.ok(new ApiResponse<>("Successfully retrieved contacts",
                 contactService.getContactsByPhoneNumber(phoneNumber), HttpStatus.OK.value()));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<ApiResponse<String>> deleteContact(@PathVariable String id) {
+        return ResponseEntity.ok(new ApiResponse<>(contactService.deleteContact(id), "", HttpStatus.OK.value()));
+
     }
 
     @GetMapping
