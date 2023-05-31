@@ -18,22 +18,22 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document
 public class Contact {
 
-	@Id
-	private String id = UUID.randomUUID().toString();
-	private String firstName;
-	private String lastName;
-	private String phoneNumber;
+    @Id
+    private String id = UUID.randomUUID().toString();
+    private String firstName;
+    private String lastName;
+    private String phoneNumber;
 
-	public Contact(CreateContactDTO dto) {
+    public Contact(CreateContactDTO dto) {
 
-		this.firstName = dto.getFirstName();
-		this.lastName = dto.getLastName();
-		this.phoneNumber = dto.getPhoneNumber();
-	}
+        this.firstName = dto.getFirstName();
+        this.lastName = dto.getLastName();
+        this.phoneNumber = dto.getPhoneNumber();
+    }
 
-	public void update(UpdateContactDTO dto) {
-		this.firstName = dto.getFirstName();
-		this.lastName = dto.getLastName();
-		this.phoneNumber = dto.getPhoneNumber();
-	}
+    public void update(UpdateContactDTO dto) {
+        this.firstName = dto.getFirstName();
+        this.lastName = dto.getLastName();
+        this.phoneNumber = dto.getPhoneNumber();
+    }
 }
